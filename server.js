@@ -7,7 +7,14 @@ mongoose.connect("mongodb+srv://myusername:mypassword@cluster0-mzspv.mongodb.net
     useUnifiedTopology: true
 });
 
+const Product = require("./src/models/Product");
+
 app.get("/",(req, res)=>{
+    Product.create({
+        title: "React Native",
+        description:"Build native apps",
+        url:"http://github.com/facebook/react-native"
+    });
     return res.send({status:true});
 });
 app.listen(8000);
