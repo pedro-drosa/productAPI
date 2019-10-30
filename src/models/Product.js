@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const mongoosePaginate = require("mongoose-paginate");
 const ProductSchema = new mongoose.Schema({
     title:{
         type: String,
@@ -16,5 +16,6 @@ const ProductSchema = new mongoose.Schema({
 },{
     timestamps: true,
 });
+ProductSchema.plugin(mongoosePaginate);
 const Product = mongoose.model("Product",ProductSchema);
 module.exports = Product; 
